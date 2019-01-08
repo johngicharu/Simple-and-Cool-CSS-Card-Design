@@ -1,0 +1,133 @@
+/*Universal Styles*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Montserrat, sans-serif;
+    color: #f4f4f4;
+}
+
+body {
+    background-color: #333;
+    line-height: 1.5;
+}
+
+.main {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container {
+    position: relative;
+    width: 650px;
+    height: 60vh;
+    background-size: cover;
+    background-position: center;
+    background-image: url('b.jpg');
+    border-right: 2px solid #f4f4f4;
+    border-left: 2px solid #f4f4f4;
+    overflow: hidden;
+}
+
+.container::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #333;
+    opacity: .3;
+}
+
+.content{
+    position: absolute;
+    top: 45%;
+    left: 30px;
+    padding: 10px;
+    z-index: 2;
+    opacity: .8;
+    transition: all 250ms ease-in-out;
+}
+
+.container:hover .content {
+    opacity: 1;
+}
+
+h1 {
+    font-size: 1.9rem;
+    margin-bottom: -2px;
+}
+
+.tagline {
+    font-family: Merriweather, serif;
+    font-size: 1rem;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+button {
+    border: none;
+    background-color: #D83A3A;
+    padding: 10px 20px;
+    font-size: 1rem;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ff0;
+    clip-path: polygon(30% 0, 80% 0, 60% 100%, 10% 100%);
+    transform: translateX(-100%);
+    z-index: 1;
+    transition: all 400ms ease-in-out;
+}
+
+button:hover::after {
+    transform: translateX(100%);
+}
+
+button .fa {
+    position: absolute;
+    top: 50%; right: -8%;
+    transform: translateY(-50%) scaleX(2.5);
+}
+
+.num {
+    color: #fff;
+    font-size: 7rem;
+    font-weight: bold;
+    position: absolute;
+    top: -30px;
+    right: 20px;
+    display: inline-block;
+    z-index: 2;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition-delay: 200ms;
+    transition: all 250ms ease-in-out;
+}
+
+.container:hover .num {
+    opacity: 1;
+    animation-delay: 2s;
+    animation: bounce 600ms forwards ease-in-out;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(-100%) rotateY(-180deg);
+    }
+    50% {
+        transform: translateY(20%)  rotateY(-90deg);
+    }
+    75% {
+        transform: translateY(-10%) rotateY(-45deg);
+    }
+    100% {
+        transform: translateY(0)  rotateY(-0deg);
+    }
+}
